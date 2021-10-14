@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Offers = () => {
+const OffersScreen = () => {
     
 }
 
-export default Offers;
+export default OffersScreen;

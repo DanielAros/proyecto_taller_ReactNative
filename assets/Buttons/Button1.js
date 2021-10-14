@@ -1,8 +1,10 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { Dimensions } from 'react-native';
 
-const Button1 = ({ text }) => {
+const Button1 = ({text}) => {
+    // console.log(props)
     return (
         <TouchableOpacity>
             <View style={styles.button}>
@@ -16,17 +18,17 @@ export default Button1;
 
 const styles = StyleSheet.create({
     button: {
-        borderRadius: 10,
+        borderRadius: 5,
         backgroundColor: '#3483fa',
-        width: Dimensions.get('window').width *.85,
-        height: 50,
-        margin: 10,
+        width: '100%',
+        height: 40,
+        // marginTop: 10,
         alignItems: 'center',
         justifyContent: 'center'
     },
     buttonText: {
         color: '#fff',
         fontFamily: 'Proxima-nova',
-        fontSize: 23
+        fontSize: 18
     }
 })
