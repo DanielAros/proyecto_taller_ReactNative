@@ -3,10 +3,19 @@ import { StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import {
+    CartScreen,
+    DetailsScreen,
+    HomeScreen,
+    InitLoginScreen,
+    InitPassScreen,
+    InitUserScreen,
+    OffersScreen
+} from '../Screens/index'
 
 
-import InitLoginScreen from '../Screens/InitLoginScreen';
-import InitUserScreen from '../Screens/InitUserScreen';
+// import InitLoginScreen from '../Screens/InitLoginScreen';
+// import InitUserScreen from '../Screens/InitUserScreen';
 // import InitPassScreen from '../Screens/InitPassScreen';
 
 const Stack = createNativeStackNavigator();
@@ -23,6 +32,9 @@ const AppNavigation = () => {
                     options={{headerShown:false}}
                 />
                 <Stack.Screen name="UserScreen" component={InitUserScreen}
+                    options={{headerShown:true, headerTitle:'', headerShadowVisible: false}}
+                />
+                <Stack.Screen name="PassScreen" component={InitPassScreen}
                     options={{headerShown:true, headerTitle:'', headerShadowVisible: false}}
                 />
             </Stack.Navigator>

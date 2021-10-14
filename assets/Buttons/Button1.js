@@ -3,10 +3,10 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { Dimensions } from 'react-native';
 
-const Button1 = ({text}) => {
+const Button1 = ({ text, onPress }) => {
     // console.log(props)
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
             <View style={styles.button}>
                 <Text style={styles.buttonText}>{ text }</Text>
             </View>
@@ -18,11 +18,11 @@ export default Button1;
 
 const styles = StyleSheet.create({
     button: {
-        borderRadius: 5,
+        borderRadius: 10,
         backgroundColor: '#3483fa',
-        width: '100%',
-        height: 40,
-        // marginTop: 10,
+        width: Dimensions.get('window').width * 0.80,
+        height: 50,
+        marginTop: 10,
         alignItems: 'center',
         justifyContent: 'center'
     },

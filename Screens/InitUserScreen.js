@@ -4,15 +4,20 @@ import { Divider } from 'react-native-elements/dist/divider/Divider';
 import Button1 from '../assets/Buttons/Button1';
 import Button2 from '../assets/Buttons/Button2';
 
-const InitUserScreen = (props) => {
+export const InitUserScreen = (props) => {
+    const onPress = () =>{
+        props.navigation.navigate('PassScreen');
+    }
     return(
         <View style={styles.container}> 
             <View style={styles.containerTop}>
                 <Text style={styles.title}>Ingresa tu teléfono, e-mail o {'\n'}usuario</Text>
                 <Text style={styles.labelEmail}>Teléfono, e-mail o usuario</Text>
-                <TextInput style={styles.textInputStyle}/>
-                <Button1 text='Ingresar'/>
-                <Button2 text='Crear cuenta'/>
+                <TextInput style={styles.textInputStyle} />
+                <View style={styles.buttonCont}>
+                    <Button1 text='Ingresar' onPress={onPress}/>
+                    <Button2 text='Crear cuenta' />
+                </View>
                 {/* <Button title={"Press"}/> */}
             </View>
             <View style={styles.containerButtom}>
@@ -25,7 +30,7 @@ const InitUserScreen = (props) => {
     )
 }
 
-export default InitUserScreen;
+// export default InitUserScreen;
 
 const styles = StyleSheet.create({
     container:{
@@ -39,20 +44,21 @@ const styles = StyleSheet.create({
     },
     containerTop:{
         height: Dimensions.get('window').height*.65,
-        paddingLeft: 20,
-        paddingRight: 20,
+        margin: 20,
         // backgroundColor: 'red',
         // borderBottomWidth: 0.4,
         // borderBottomColor: 'gray',
         // justifyContent: 'space-between',
     },
     title:{
-        fontSize: 22,
+        fontSize: 30,
         marginBottom: 40,
-        // fontWeight: 'bold',
+        fontFamily: 'Proxima-nova'
     },
     labelEmail:{
-        padding: 4
+        padding: 4,
+        fontFamily: 'Proxima-nova',
+        fontSize: 17
     },
     textInputStyle:{
         borderWidth: 0.5,
@@ -81,4 +87,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'grey',
     },
+    buttonCont: {
+        width: '100%',
+        height: '20%',
+        // borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 })

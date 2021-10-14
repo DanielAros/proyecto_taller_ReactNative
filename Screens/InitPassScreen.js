@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const InitPassScreen = () => {
+export const InitPassScreen = () => {
     return(
         <View>
             <Text>Pantalla Tres</Text>
@@ -9,4 +9,4 @@ const InitPassScreen = () => {
     )
 }
 
-export default InitPassScreen;
+// export default InitPassScreen;

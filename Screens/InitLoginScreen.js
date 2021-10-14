@@ -5,9 +5,9 @@ import Button1 from '../assets/Buttons/Button1'
 import Button2 from '../assets/Buttons/Button2'
 
 
-const InitLoginScreen = (props) => {
+export const InitLoginScreen = (props) => {
     console.log(props.navigation);
-    const goToIniUserScreen = () =>{
+    const onPress = () =>{
         props.navigation.navigate('UserScreen');
     }
 
@@ -36,12 +36,12 @@ const InitLoginScreen = (props) => {
                 </Text>
             </View>
             <View style={styles.textContainer}>
-                <Button title={'Press me'}
-                    onPress={goToIniUserScreen}
-                />
+                {/* <Button title={'Press me'}
+                    // onPress={}
+                /> */}
                 <Button1
                     text="Registrarme con mi e-mail"
-                    onPress={()=>console.log("Press")}
+                    onPress={onPress}
                 />
                 <Button2
                     text="Ya tengo cuenta"
@@ -66,7 +66,7 @@ const InitLoginScreen = (props) => {
     )
 }
 
-export default InitLoginScreen;
+// export default InitLoginScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -75,34 +75,22 @@ const styles = StyleSheet.create({
         height: "100%",
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        marginTop: 40
     },
     textContainer: {
-        width: Dimensions.get('window').width,
+        width: Dimensions.get('window').width * 0.80,
         height: Dimensions.get('window').height * .25,
-        // borderColor: 'black',
         alignItems: 'center',
         // borderWidth: 1,
         padding: 20,
-        width: Dimensions.get('window').width * 0.80,
     },
     TyCtext: {
         fontFamily: 'Proxima-nova',
         fontSize: 15,
         textAlign: 'center'
     },
-    OCont: {
-        borderColor: 'black',
-        borderWidth: 1,
-        width: '100%',
-        alignItems: 'center'
-    },
     Otext: {
         fontFamily: 'Proxima-nova',
         fontSize: 25,
     },
-    button: {
-        backgroundColor: 'red',
-        borderRadius: 30
-    }
 })
