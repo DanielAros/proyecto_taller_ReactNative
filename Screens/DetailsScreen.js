@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const InitPass = () => {
+const DetailsScreen = () => {
     
 }
 
-export default InitPass;
+export default DetailsScreen;

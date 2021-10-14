@@ -1,10 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, Linking} from 'react-native';
+import { StyleSheet, Text, View, Linking, Button} from 'react-native';
 import { Dimensions } from 'react-native';
 import Button1 from '../assets/Buttons/Button1'
 import Button2 from '../assets/Buttons/Button2'
 
-const InitLogin = () => {
+
+const InitLoginScreen = (props) => {
+    console.log(props.navigation);
+    const goToIniUserScreen = () =>{
+        props.navigation.navigate('UserScreen');
+    }
+
     return (
         // Container principal
         <View style={styles.container}>
@@ -30,8 +36,12 @@ const InitLogin = () => {
                 </Text>
             </View>
             <View style={styles.textContainer}>
+                <Button title={'Press me'}
+                    onPress={goToIniUserScreen}
+                />
                 <Button1
                     text="Registrarme con mi e-mail"
+                    onPress={()=>console.log("Press")}
                 />
                 <Button2
                     text="Ya tengo cuenta"
@@ -56,15 +66,16 @@ const InitLogin = () => {
     )
 }
 
-export default InitLogin;
+export default InitLoginScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width:"100%",
+        height: "100%",
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: 50
     },
     textContainer: {
         width: Dimensions.get('window').width,
