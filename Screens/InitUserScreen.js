@@ -65,6 +65,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         height: 42,
         marginBottom: 45,
+        fontSize: 20,
+        fontFamily: 'Proxima-nova',
+        padding: 10
     },
     containerButtom:{
         height: Dimensions.get('window').height*.35,
@@ -73,25 +76,28 @@ const styles = StyleSheet.create({
     },
     textHelpStyle:{
         color: '#4886DD',
-        fontSize: 18,
+        fontSize: 20,
         marginBottom: 30,
         textAlign: 'center',
+        fontFamily: 'Proxima-nova'
     },
     textPrivacyStyle:{
-        fontSize: 16,
+        fontSize: 18,
         textAlign: 'center',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'Proxima-nova'
     },
     textCopytightStyle:{
-        fontSize: 11,
+        fontSize: 15,
         textAlign: 'center',
         color: 'grey',
+        fontFamily: 'Proxima-nova'
     },
     buttonCont: {
         width: '100%',
         height: '20%',
         // borderWidth: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 })

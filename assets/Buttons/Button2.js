@@ -27,6 +27,6 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#3483fa',
         fontFamily: 'Proxima-nova',
-        fontSize: 18
+        fontSize: 23
     }
 })
