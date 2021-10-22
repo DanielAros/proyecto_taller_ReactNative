@@ -1,4 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { Dimensions } from 'react-native';
@@ -18,9 +19,9 @@ export default Button1;
 
 const styles = StyleSheet.create({
     button: {
-        borderRadius: 10,
+        borderRadius: 7,
         backgroundColor: '#3483fa',
-        width: Dimensions.get('window').width * 0.80,
+        width: '100%',
         height: 50,
         marginTop: 10,
         alignItems: 'center',
@@ -29,6 +30,6 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#fff',
         fontFamily: 'Proxima-nova',
-        fontSize: 23
+        fontSize: hp('2.8%'),
     }
 })
