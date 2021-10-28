@@ -24,7 +24,7 @@ const AppNavigation = () => {
     return(
         <NavigationContainer>
             <StatusBar
-                style="auto"
+                style={'auto'}
                 backgroundColor="#f1c40f"
             />
             <Stack.Navigator >
@@ -46,9 +46,3 @@ const AppNavigation = () => {
 }
 
 export default AppNavigation;
-
-const styles = StyleSheet.create({
-    headerStyle:{
-        height: 50
-    }
-})
