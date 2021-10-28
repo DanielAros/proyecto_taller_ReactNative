@@ -1,74 +1,100 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Dimensions, Button} from 'react-native';
+import { Divider } from 'react-native-elements/dist/divider/Divider';
 import Button1 from '../assets/Buttons/Button1';
 import Button2 from '../assets/Buttons/Button2';
 
-export const InitPassScreen = () => {
+export const InitPassScreen = (props) => {
+    const onPress = () =>{
+        props.navigation.navigate('HomeScreen');
+    }
     return(
-        <View style={styles.container}>
-            <View style={styles.keyCont}>
-                <Text>Ahora, tu clave de Mercado Libre</Text>
+        <View style={styles.container}> 
+            <View style={styles.containerTop}>
+                <Text style={styles.title}>Ahora, tu clave de Mercado Libre</Text>
+                <Text style={styles.labelClave}>Clave</Text>
+                <View style={styles.textInputStyle}>
+                    <TextInput style={styles.inputCont}/>
+                    <View style={styles.mostContainer}>
+                        <Button2 text='Mostrar' />
+                    </View>
+                    
+                </View>
+                
+                <View style={styles.buttonCont}>
+                    <Button1 text='Ingresar' onPress={onPress}/>
+                    <Button2 text='No sé mi clave' />
+                </View>
+                {/* <Button title={"Press"}/> */}
             </View>
-
-            <View style={styles.inputContainer}>
-                <Text>Clave</Text>
-                <View style={styles.input}>
-                    <TextInput style={styles.textInput}></TextInput>
-                    <Button2 text="Mostrar"/>
-                </View>   
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <Button1 text='Ingresar' />
-                <Button2 text='No se mi clave'/>
-            </View>
-
-            <View style={styles.notContainer}>
-                <Button2 text='No Soy'/>
+            <View style={styles.containerButtom}>
+                <Text style={styles.textHelpStyle}>No soy</Text>
+                <Divider style={{marginHorizontal:1, marginBottom: 12}}/>
             </View>
         </View>
     )
 }
 
+// export default InitPassScreen;
+
 const styles = StyleSheet.create({
-    container: {
+    container:{
         flex: 1,
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        marginTop: 40
+        backgroundColor: 'white',
+        padding: 10,
+        // borderWidth: 1
     },
-
-    keyCont: {
+    containerTop:{
+        height: Dimensions.get('window').height*.65,
+        margin: 20,
+        // borderWidth: 1
+    },
+    title:{
+        fontSize: 30,
+        marginBottom: 40,
+        fontFamily: 'Proxima-nova'
+    },
+    labelClave:{
+        padding: 4,
+        fontFamily: 'Proxima-nova',
+        fontSize: 17
+    },
+    textInputStyle:{
         borderWidth: 1,
-        width: Dimensions.get('window').width,
+        borderRadius: 5,
+        height: 42,
+        marginBottom: 45,
+        alignContent: 'flex-end',
+        flexDirection:'row',
+    },
+    inputCont: {
+        width: '75%',
+        fontSize: 20,
+        fontFamily: 'Proxima-nova',
+        padding: 5
+
+    },
+    containerButtom:{
         height: Dimensions.get('window').height * .25,
+        padding: 10,
+        justifyContent:'flex-end'
     },
-
-    inputContainer: {
-        borderWidth: 1,
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height * .20
+    textHelpStyle:{
+        color: '#4886DD',
+        fontSize: 18,
+        marginBottom: 30,
+        fontFamily:'Proxima-nova'
+      //  textAlign: 'center',
     },
-
-    buttonContainer: {
-        borderWidth: 1,
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height * .15
+    buttonCont: {
+        width: '100%',
+        height: '20%',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-
-    notContainer: {
-        borderWidth: 1,
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height * .40
-    },
-    input: {
-        borderWidth: 1,
-        height: '40%',
-        backgroundColor: 'red'
-    },
-    textInput: {
-        borderWidth: 1
+    mostContainer: {
+        width: '25%',
+        height: '95%',
+        // borderWidth: 1
     }
 })
