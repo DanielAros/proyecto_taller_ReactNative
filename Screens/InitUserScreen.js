@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         //padding: 20,
     },
     containerTop:{
-        height: hp('65%'),
+        height: hp('60%'),
         //margin: 20,
         paddingLeft: 16,
         paddingRight: 16,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     textInputCont: {
         height: '8%',
         marginBottom: 70,
-        borderRadius: 10,
+        borderRadius: 7,
         borderWidth: 1,
     },
     textInputStyle: {

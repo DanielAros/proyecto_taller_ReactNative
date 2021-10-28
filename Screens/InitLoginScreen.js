@@ -97,10 +97,11 @@ const styles = StyleSheet.create({
     },
     buttonContainer:{
         width: '100%',
-        height: '25%',
+        height: hp('30%'),
         paddingLeft: 25,
         paddingRight: 25,
         flexWrap: 'wrap',
+        // borderWidth: 1
     },
     but1Cont: {
         height: '20%',

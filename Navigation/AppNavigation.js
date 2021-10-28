@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import {
     CartScreen,
     DetailsScreen,
@@ -21,10 +21,19 @@ import {
 const Stack = createNativeStackNavigator();
 
 const AppNavigation = () => {
+
+    const MyStatusBar = ({backgroundColor, ...props}) => (
+        <View style={[styles.statusBar, { backgroundColor }]}>
+        <SafeAreaView>
+            <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+        </SafeAreaView>
+        </View>
+    );
+
     return(
         <NavigationContainer>
-            <StatusBar
-                style={'auto'}
+            <MyStatusBar
+                // style={'au}to'}
                 backgroundColor="#f1c40f"
             />
             <Stack.Navigator >
@@ -45,4 +54,14 @@ const AppNavigation = () => {
     )
 }
 
+const STATUSBAR_HEIGHT = StatusBar.currentHeight;
 export default AppNavigation;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    statusBar: {
+        height: STATUSBAR_HEIGHT,
+    },
+})

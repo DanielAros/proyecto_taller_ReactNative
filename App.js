@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import InitLoginScreen from './Screens/InitLoginScreen';
 import * as Font from 'expo-font';
 import AppLoading from "expo-app-loading";
@@ -12,6 +12,10 @@ export default function App() {
 
   const [fontLoaded, setFontLoaded] = useState(false);
   console.log(fontLoaded)
+
+  const hp = Dimensions.get('window').height
+  const wp = Dimensions.get('window').width
+  console.log("hp"+hp+" - wp:"+wp)
 
     const fetchFonts = () =>{
 

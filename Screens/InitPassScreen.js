@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         padding: 5
     },
     containerButtom:{
-        height: hp('30%'),
+        height: hp('23%'),
         padding: 10,
         // backgroundColor: 'red',
         justifyContent:'flex-end'
@@ -93,17 +93,17 @@ const styles = StyleSheet.create({
     },
     buttonCont: {
         width: '100%',
-        height: '20%',
+        height: '30%',
         // borderWidth: 1,
         // margin:10
     },
     but1Cont: {
-        height: '35%',
+        height: '30%',
         width: '100%',
         marginBottom: 10
     },
     but2Cont: {
-        height: '35%',
+        height: '30%',
         width: '100%',
         // borderWidth: 1
     },
