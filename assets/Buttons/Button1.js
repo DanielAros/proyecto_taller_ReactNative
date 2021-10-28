@@ -22,14 +22,14 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         backgroundColor: '#3483fa',
         width: '100%',
-        height: 50,
-        marginTop: 10,
+        height: '100%',
+        // marginTop: 10,
         alignItems: 'center',
         justifyContent: 'center'
     },
     buttonText: {
         color: '#fff',
         fontFamily: 'Proxima-nova',
-        fontSize: hp('2.8%'),
+        fontSize: hp('2.3%'),
     }
 })

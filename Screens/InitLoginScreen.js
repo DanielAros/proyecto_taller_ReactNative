@@ -42,13 +42,18 @@ export const InitLoginScreen = (props) => {
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-                <Button1
-                    text="Registrarme con mi e-mail"
-                    onPress={onPress}
-                />
-                <Button2
-                    text="Ya tengo cuenta"
-                />
+                <View style={styles.but1Cont}>
+                    <Button1
+                        text="Registrarme con mi e-mail"
+                        onPress={onPress}
+                    />
+                </View>
+                <View style={styles.but2Cont}>
+                    <Button2
+                        text="Ya tengo cuenta"
+                    />
+                </View>
+                
             </View>
             <View style={styles.containerPoliticas}>
                 <Text style={styles.TyCtext}>
@@ -83,16 +88,11 @@ const styles = StyleSheet.create({
     textContainer: {
         width: '100%',
         height: '40%',
-        //alignItems: 'center',
-        // borderWidth: 1,
-        //backgroundColor: 'red',
+        paddingTop: 20,
     },
     textTitleContainer: {
         width: '100%',
         height: '90%',
-        //alignItems: 'center',
-        // borderWidth: 1,
-        //backgroundColor: 'blue',
         justifyContent: 'center'
     },
     buttonContainer:{
@@ -100,7 +100,16 @@ const styles = StyleSheet.create({
         height: '25%',
         paddingLeft: 25,
         paddingRight: 25,
-        justifyContent: 'center'
+        flexWrap: 'wrap',
+    },
+    but1Cont: {
+        height: '20%',
+        width: '100%',
+        marginBottom: 10,
+    },
+    but2Cont: {
+        height: '20%',
+        width: '100%',
     },
     TyCtext: {
         fontFamily: 'Proxima-nova',
@@ -110,7 +119,6 @@ const styles = StyleSheet.create({
     containerPoliticas:{
         width: '100%',
         height: '35%',
-        //backgroundColor: 'yellow',
         justifyContent: 'center',
         padding: 20
     },

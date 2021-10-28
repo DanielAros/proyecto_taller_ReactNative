@@ -28,12 +28,12 @@ const AppNavigation = () => {
                 backgroundColor="#f1c40f"
             />
             <Stack.Navigator >
-                {/* <Stack.Screen name="LoginScreen" component={InitLoginScreen}
+                <Stack.Screen name="LoginScreen" component={InitLoginScreen}
                     options={{headerShown:false}}
                 />
                 <Stack.Screen name="UserScreen" component={InitUserScreen}
                     options={{headerShown:true, headerTitle:'', headerShadowVisible: false}}
-                /> */}
+                />
                 <Stack.Screen name="PassScreen" component={InitPassScreen}
                     options={{headerShown:true, headerTitle:'', headerShadowVisible: false}}
                 />

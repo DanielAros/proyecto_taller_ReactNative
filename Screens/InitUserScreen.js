@@ -15,10 +15,16 @@ export const InitUserScreen = (props) => {
             <View style={styles.containerTop}>
                 <Text style={styles.title}>Ingresa tu teléfono, e-mail o usuario</Text>
                 <Text style={styles.labelEmail}>Teléfono, e-mail o usuario</Text>
-                <TextInput style={styles.textInputStyle} />
+                <View style={styles.textInputCont}>
+                    <TextInput style={styles.textInputStyle} />
+                </View>
                 <View style={styles.buttonCont}>
-                    <Button1 text='Ingresar' onPress={onPress}/>
-                    <Button2 text='Crear cuenta' />
+                    <View style={styles.but1Cont}>
+                        <Button1 text='Ingresar' onPress={onPress}/>
+                    </View>
+                    <View style={styles.but2Cont}>
+                        <Button2 text='Crear cuenta' />
+                    </View>
                 </View>
             </View>
             <View style={styles.containerButtom}>
@@ -46,39 +52,40 @@ const styles = StyleSheet.create({
         //padding: 20,
     },
     containerTop:{
-        height: '65%',
+        height: hp('65%'),
         //margin: 20,
         paddingLeft: 16,
         paddingRight: 16,
-        //backgroundColor: 'red',
-        // borderBottomWidth: 0.4,
-        // borderBottomColor: 'gray',
-        // justifyContent: 'space-between',
+        // borderWidth: 1
     },
     title:{
         fontSize: hp('4%'),
-        marginBottom: 40,
+        marginBottom: 70,
         fontFamily: 'Proxima-nova'
     },
     labelEmail:{
         padding: 4,
         fontFamily: 'Proxima-nova',
-        fontSize: hp('2.6%')
+        fontSize: hp('2.3%')
     },
-    textInputStyle:{
-        borderWidth: 0.3,
-        borderRadius: 3,
-        height: 42,
-        marginBottom: 45,
-        fontSize: 20,
+    textInputCont: {
+        height: '8%',
+        marginBottom: 70,
+        borderRadius: 10,
+        borderWidth: 1,
+    },
+    textInputStyle: {
+        height: '100%',
+        fontSize: hp('2%'),
         fontFamily: 'Proxima-nova',
-        padding: 10
+        padding: 10,
+        // backgroundColor: 'red',
     },
     containerButtom:{
-        height: '35%',
-        //backgroundColor: 'yellow',
-        justifyContent: 'flex-end'
-        // alignItems: 'center',
+        height: hp('35%'),
+        // backgroundColor: 'yellow',
+        justifyContent: 'flex-end',
+        paddingBottom: 40,
     },
     textHelpStyle:{
         color: '#4886DD',
@@ -89,10 +96,11 @@ const styles = StyleSheet.create({
     },
     containterPrivacy:{
         width: ('100%'),
-        padding: 11
+        padding: 11,
+        // borderWidth: 1
     },
     textPrivacyStyle:{
-        fontSize: hp('2.4%'),
+        fontSize: hp('2.3%'),
         textAlign: 'center',
         marginBottom: 5,
         fontFamily: 'Proxima-nova'
@@ -105,5 +113,17 @@ const styles = StyleSheet.create({
     },
     buttonCont: {
         width: '100%',
-    }
+        height: hp('20%'),
+        // borderWidth: 1
+    },
+    but1Cont: {
+        height: '28%',
+        width: '100%',
+        marginBottom: 10
+    },
+    but2Cont: {
+        height: '28%',
+        width: '100%',
+        // borderWidth: 1
+    },
 })

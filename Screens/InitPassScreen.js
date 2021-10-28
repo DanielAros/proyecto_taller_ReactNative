@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Dimensions, Button} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Dimensions, Button } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { Divider } from 'react-native-elements/dist/divider/Divider';
 import Button1 from '../assets/Buttons/Button1';
 import Button2 from '../assets/Buttons/Button2';
@@ -22,8 +23,12 @@ export const InitPassScreen = (props) => {
                 </View>
                 
                 <View style={styles.buttonCont}>
-                    <Button1 text='Ingresar' onPress={onPress}/>
-                    <Button2 text='No sé mi clave' />
+                    <View style={styles.but1Cont}>
+                        <Button1 text='Ingresar' onPress={onPress}/>
+                    </View>
+                    <View style={styles.but2Cont}>
+                        <Button2 text='No sé mi clave' />
+                    </View>
                 </View>
                 {/* <Button title={"Press"}/> */}
             </View>
@@ -40,14 +45,14 @@ export const InitPassScreen = (props) => {
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#fff',
         padding: 10,
         // borderWidth: 1
     },
     containerTop:{
-        height: Dimensions.get('window').height*.65,
-        margin: 20,
-        // borderWidth: 1
+        height: hp('65%'),
+        // margin: 20,
+        // borderWid    th: 1
     },
     title:{
         fontSize: 30,
@@ -62,21 +67,21 @@ const styles = StyleSheet.create({
     textInputStyle:{
         borderWidth: 1,
         borderRadius: 5,
-        height: 42,
+        height: '8%',
         marginBottom: 45,
         alignContent: 'flex-end',
         flexDirection:'row',
     },
     inputCont: {
         width: '75%',
-        fontSize: 20,
+        fontSize: hp('2%'),
         fontFamily: 'Proxima-nova',
         padding: 5
-
     },
     containerButtom:{
-        height: Dimensions.get('window').height * .25,
+        height: hp('30%'),
         padding: 10,
+        // backgroundColor: 'red',
         justifyContent:'flex-end'
     },
     textHelpStyle:{
@@ -89,8 +94,18 @@ const styles = StyleSheet.create({
     buttonCont: {
         width: '100%',
         height: '20%',
-        justifyContent: 'center',
-        alignItems: 'center'
+        // borderWidth: 1,
+        // margin:10
+    },
+    but1Cont: {
+        height: '35%',
+        width: '100%',
+        marginBottom: 10
+    },
+    but2Cont: {
+        height: '35%',
+        width: '100%',
+        // borderWidth: 1
     },
     mostContainer: {
         width: '25%',
