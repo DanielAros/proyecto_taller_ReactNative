@@ -34,7 +34,7 @@ export const InitPassScreen = (props) => {
             </View>
             <View style={styles.containerButtom}>
                 <Text style={styles.textHelpStyle}>No soy</Text>
-                <Divider style={{marginHorizontal:1, marginBottom: 12}}/>
+                {/* <Divider style={{marginHorizontal:1, marginBottom: 12}}/> */}
             </View>
         </View>
     )
