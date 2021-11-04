@@ -26,6 +26,9 @@ export const MyDrawer = () =>{
     return (
         <Drawer.Navigator>
             <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+            <Drawer.Screen name="CartScreen" component={CartScreen}
+                    options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
+            />
         </Drawer.Navigator>
         
     );
@@ -51,10 +54,13 @@ export const StackLogin = () => {
                 />
                 <Stack.Screen name="PassScreen" component={InitPassScreen}
                     options={{headerShown:true, headerTitle:'', headerShadowVisible: false}}
+                /> 
+                {/*<Stack.Screen name="HomeScreen" component={HomeScreen}
+                    options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
                 />
-                <Stack.Screen name="HomeScreen" component={HomeScreen}
-                    options={{headerShown:true, headerTitle:'', headerShadowVisible: false}}
-                />
+                <Stack.Screen name="CartScreen" component={CartScreen}
+                    options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
+                />*/}
             </Stack.Navigator>
     )
 }
