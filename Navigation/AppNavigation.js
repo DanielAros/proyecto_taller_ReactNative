@@ -11,7 +11,8 @@ import {
     InitLoginScreen,
     InitPassScreen,
     InitUserScreen,
-    OffersScreen
+    OffersScreen,
+    LogOutScreen
 } from '../Screens/index'
 
 
@@ -26,6 +27,7 @@ export const MyDrawer = () =>{
     return (
         <Drawer.Navigator>
             <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+            <Drawer.Screen name="LogOut" component={LogOutScreen} />
             <Drawer.Screen name="CartScreen" component={CartScreen}
                     options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
             />
