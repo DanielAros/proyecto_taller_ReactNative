@@ -4,8 +4,22 @@ import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import InitLoginScreen from './Screens/InitLoginScreen';
 import * as Font from 'expo-font';
 import AppLoading from "expo-app-loading";
+import { createStore, combineReducers, applyMiddleware} from 'redux';
+import ReduxThunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+import LoginValidation from './Navigation/LogValidation';
+import authReducer from './store/reducers/authReducer';
 
 import AppNavigation from './Navigation/AppNavigation';
+
+const rootReducer = combineReducers({
+  auth: authReducer,
+})
+const store = createStore(
+  rootReducer,
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(ReduxThunk)
+)
 
 
 export default function App() {
@@ -36,6 +50,8 @@ export default function App() {
     }
 
   return (
-    <AppNavigation/>
+    <Provider store={store}>
+      <LoginValidation/>
+    </Provider>
   );
 }

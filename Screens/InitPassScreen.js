@@ -1,21 +1,52 @@
-import React from 'react';
-import { StyleSheet, Text, View, TextInput, Dimensions, Button } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, TextInput, Dimensions, Button, Alert} from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { Divider } from 'react-native-elements/dist/divider/Divider';
 import Button1 from '../assets/Buttons/Button1';
 import Button2 from '../assets/Buttons/Button2';
+import {useDispatch} from "react-redux";
+import * as authAction from "../store/actions/authAction";
 
 export const InitPassScreen = (props) => {
-    const onPress = () =>{
+    /*const onPress = () =>{
         props.navigation.navigate('HomeScreen');
+    }*/
+
+    const [user, setUser] = useState("Admin");
+    const [password, setPassword] = useState(null);
+
+    const dispatch = useDispatch();
+    const onClick = () =>{
+        try {
+            console.log(user, password)
+            user && password ?
+                dispatch(authAction.tryLogin(user, password))
+            :
+                Alert.alert("Error", "Campos vacios", [{text:'ok'}])
+        }catch(e){
+            Alert.alert("Error", e.toString(), [{text:'ok'}])
+        }
     }
+
+    const validateUser = (user) =>{
+        console.log(user)
+        setUser(user)
+    }
+    const validatePassword = (password) =>{
+        console.log(password)
+        setPassword(password)
+    }
+
+
     return(
         <View style={styles.container}> 
             <View style={styles.containerTop}>
                 <Text style={styles.title}>Ahora, tu clave de Mercado Libre</Text>
                 <Text style={styles.labelClave}>Clave</Text>
                 <View style={styles.textInputStyle}>
-                    <TextInput style={styles.inputCont}/>
+                    <TextInput style={styles.inputCont}
+                        onChangeText={txt => validatePassword(txt)}
+                    />
                     <View style={styles.mostContainer}>
                         <Button2 text='Mostrar' />
                     </View>
@@ -24,7 +55,7 @@ export const InitPassScreen = (props) => {
                 
                 <View style={styles.buttonCont}>
                     <View style={styles.but1Cont}>
-                        <Button1 text='Ingresar' onPress={onPress}/>
+                        <Button1 text='Ingresar' onPress={onClick}/>
                     </View>
                     <View style={styles.but2Cont}>
                         <Button2 text='No sé mi clave' />

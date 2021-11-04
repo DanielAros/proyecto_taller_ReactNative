@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 // import { StatusBar } from 'expo-status-bar';
 import {
     CartScreen,
@@ -10,7 +11,8 @@ import {
     InitLoginScreen,
     InitPassScreen,
     InitUserScreen,
-    OffersScreen
+    OffersScreen,
+    LogOutScreen
 } from '../Screens/index'
 
 
@@ -19,8 +21,22 @@ import {
 // import InitPassScreen from '../Screens/InitPassScreen';
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
-const AppNavigation = () => {
+export const MyDrawer = () =>{
+    return (
+        <Drawer.Navigator>
+            <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+            <Drawer.Screen name="LogOut" component={LogOutScreen} />
+            <Drawer.Screen name="CartScreen" component={CartScreen}
+                    options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
+            />
+        </Drawer.Navigator>
+        
+    );
+}
+
+export const StackLogin = () => {
 
     const MyStatusBar = ({backgroundColor, ...props}) => (
         <View style={[styles.statusBar, { backgroundColor }]}>
@@ -31,11 +47,6 @@ const AppNavigation = () => {
     );
 
     return(
-        <NavigationContainer>
-            <MyStatusBar
-                // style={'au}to'}
-                backgroundColor="#f1c40f"
-            />
             <Stack.Navigator >
                 <Stack.Screen name="LoginScreen" component={InitLoginScreen}
                     options={{headerShown:false}}
@@ -53,12 +64,11 @@ const AppNavigation = () => {
                     options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
                 />
             </Stack.Navigator>
-        </NavigationContainer>
     )
 }
 
 const STATUSBAR_HEIGHT = StatusBar.currentHeight;
-export default AppNavigation;
+//export default AppNavigation;
 
 const styles = StyleSheet.create({
     container: {

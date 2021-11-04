@@ -1,13 +1,24 @@
 import React from 'react';
-import { NavigationContainer } from "@react-navigation/native";
-import MainNav from './MainNav';
+import {NavigationContainer} from "@react-navigation/native";
+import {useSelector} from "react-redux";
+import {StackLogin, MyDrawer } from './AppNavigation';
 
-const LogValidation = (props) =>{
+const LoginValidation = (props) =>{
+
+    const isAuth = useSelector(state => state.auth.login);
+
+/*    if(!isAuth){
+        fetchCookie(){
+
+        }
+    }*/
 
     return(
         <NavigationContainer>
-            <MainNav/>
+            {isAuth && <MyDrawer/>}
+            {!isAuth && <StackLogin/>}
+
         </NavigationContainer>
     );
 }
-export default LogValidation;
+export default LoginValidation;
