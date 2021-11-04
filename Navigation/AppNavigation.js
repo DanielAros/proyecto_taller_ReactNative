@@ -25,28 +25,28 @@ const Drawer = createDrawerNavigator();
 
 export const MyDrawer = () =>{
     return (
-        <Drawer.Navigator>
-            <Drawer.Screen name="HomeScreen" component={HomeScreen} />
-            <Drawer.Screen name="LogOut" component={LogOutScreen} />
-            <Drawer.Screen name="CartScreen" component={CartScreen}
-                    options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
+        // <NavigationContainer>
+            <Stack.Navigator>
+            <Stack.Screen name="HomeScreen" component={HomeScreen}
+                options={{ headerShown: false, headerTitle: '', headerShadowVisible: false }} />
+            <Stack.Screen name="LogOut" component={LogOutScreen} />
+            <Stack.Screen name="CartScreen" component={CartScreen}
+                options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
             />
-        </Drawer.Navigator>
+        </Stack.Navigator>
+        // </NavigationContainer>
+        
         
     );
 }
 
 export const StackLogin = () => {
 
-    const MyStatusBar = ({backgroundColor, ...props}) => (
-        <View style={[styles.statusBar, { backgroundColor }]}>
-        <SafeAreaView>
-            <StatusBar translucent backgroundColor={backgroundColor} {...props} />
-        </SafeAreaView>
-        </View>
-    );
+    
 
-    return(
+    return (
+        // <NavigationContainer>
+        
             <Stack.Navigator >
                 <Stack.Screen name="LoginScreen" component={InitLoginScreen}
                     options={{headerShown:false}}
@@ -64,17 +64,15 @@ export const StackLogin = () => {
                     options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
                 />
             </Stack.Navigator>
+        // </NavigationContainer>
+            
     )
 }
 
-const STATUSBAR_HEIGHT = StatusBar.currentHeight;
 //export default AppNavigation;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    statusBar: {
-        height: STATUSBAR_HEIGHT,
     },
 })
