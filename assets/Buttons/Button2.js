@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import { Dimensions } from 'react-native';
 
 const Button2 = ({ text }) => {
     return (

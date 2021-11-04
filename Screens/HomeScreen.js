@@ -5,13 +5,16 @@ import {
     TextInput,
     View,
     TouchableOpacity,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
 import { BackgroundImage } from 'react-native-elements/dist/config';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { SimpleLineIcons, Ionicons, Feather, Octicons } from '@expo/vector-icons'; 
 import Carousel from 'react-native-snap-carousel';
 import { IMAGES } from '../Data/imgCarrousel';
+import { CARDATA } from '../Data/CardData';
+import Card from '../assets/Buttons/Card';
 
 export const HomeScreen = (props) => {
 
@@ -87,8 +90,20 @@ export const HomeScreen = (props) => {
                 />
             </View>
 
-            <View style={styles.offerSectionContainer}>
-                {/* Flatlist */}
+            <View style={styles.offerSectionContainer}> 
+                <FlatList
+                    data={CARDATA}
+                    // showsVerticalScrollIndicator={true} //Explicar esto
+                    keyExtractor={item => item.id.toString()}
+                    // horizontal={true}
+                    numColumns={5}
+                    renderItem={itemData => (
+                        <Card
+                            cardData={itemData.item}
+                            {...props}
+                        />
+                    )}
+                />
             </View>
 
             <View style={styles.addContainer}>
@@ -122,7 +137,8 @@ export const HomeScreen = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
+        backgroundColor: '#dfe6e9'
     },
 
     buscContainer: {
@@ -207,9 +223,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10
+    },
+
+    offerSectionContainer: {
+        marginTop: hp('1%'),
+        height: hp('13%'),
+        width: wp('100%'),
+        // flexDirection: 'row',
+        // flexWrap: 'wrap',
+        // borderWidth: 1,
+
     }
-
-
 
 })
 
