@@ -49,7 +49,9 @@ export const MyDrawer = () =>{
             <Drawer.Screen name="CartScreen" component={CartScreen}
                 options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
             />
-            <Drawer.Screen name="OfferScreen" component={OffersScreen}/>
+            <Drawer.Screen name="OfferScreen" component={OffersScreen}
+                options={{headerShown:true, headerTitle:'Ofertas', headerShadowVisible: true}}
+            />
         </Drawer.Navigator>
         // </NavigationContainer>
         

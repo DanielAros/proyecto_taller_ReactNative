@@ -1,10 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import ProductCard from '../assets/componentes/ProductCard';
 
 export const OffersScreen = () => {
     return(
         <View style={styles.container}>
-            <Text>Hola Mundo!!</Text>
+            <ProductCard/>
+            <ProductCard/>
         </View>
     )
 }
@@ -12,8 +14,9 @@ export const OffersScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
+        width: '100%',
+        height: '100%',
+        flexDirection: 'row'
+    },
 })
 // export derfault OffersScreen;
