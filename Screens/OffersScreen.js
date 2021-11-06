@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
-import ProductCard from '../assets/componentes/ProductCard';
+import OffersProductCard from '../assets/componentes/OffersProductCard';
 import {ARTICULOS} from '../Data/dummyData';
 import { AntDesign, FontAwesome} from '@expo/vector-icons'; 
 
 export const OffersScreen = (props) => {
     return(
         <View style={styles.container}>
+
+
+            
             <View style={styles.containerDir}>
                 <FontAwesome name="map-marker" size={12} color="black" style={{marginRight:5}}/>
                 <Text style={styles.styleText}>Enviar a Hugo Aviles</Text>
@@ -25,7 +28,7 @@ export const OffersScreen = (props) => {
                     showsVerticalScrollIndicator={true}
                     keyExtractor={item => item.id.toString()}
                     renderItem={itemData => (
-                        <ProductCard
+                        <OffersProductCard
                             productInfo={itemData.item}
                             {...props}
                         />

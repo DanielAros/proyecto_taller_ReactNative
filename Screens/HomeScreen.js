@@ -15,15 +15,13 @@ import { SimpleLineIcons, Ionicons, Feather, Octicons } from '@expo/vector-icons
 import Carousel from 'react-native-snap-carousel';
 import { IMAGES } from '../Data/imgCarrousel';
 import { CARDATA } from '../Data/CardData';
-import Card from '../assets/Buttons/Card';
+import Card from '../assets/componentes/Card';
 import { Divider } from 'react-native-elements/dist/divider/Divider';
 import { ARTICULOS } from '../Data/dummyData';
-import ProductCard from '../assets/Buttons/ProductCard';
+import ProductCard from '../assets/componentes/ProductCard';
 
 
 export const HomeScreen = (props) => {
-
-    
 
     const redirectCart = () => {
         props.navigation.navigate('CartScreen')
@@ -52,10 +50,15 @@ export const HomeScreen = (props) => {
         )
     }
 
+    const goToDetails = () =>{
+        props.navigation.navigate('ProductDetails');
+    }
+
     const _renderItem2 = (props) => {
         // console.log(window.innerHeight)
         return (
-            <View style={{
+            <TouchableOpacity style={{flex: 1}} onPress={goToDetails}>
+                <View style={{
                 flex: 1,
                 padding: 10,
                 height: '100%',
@@ -84,6 +87,8 @@ export const HomeScreen = (props) => {
 
             </View>
         </View>
+            </TouchableOpacity>
+            
         )
     }
 
