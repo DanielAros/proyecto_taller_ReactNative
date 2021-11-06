@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 // import { StatusBar } from 'expo-status-bar';
+import { SimpleLineIcons, Ionicons, Feather, Octicons } from '@expo/vector-icons'; 
+
 import {
     CartScreen,
     DetailsScreen,
@@ -14,11 +16,22 @@ import {
     OffersScreen,
     LogOutScreen
 } from '../Screens/index'
+import iconSet from '@expo/vector-icons/build/Fontisto';
+import { TextInput } from 'react-native-gesture-handler';
 
 
 // import InitLoginScreen from '../Screens/InitLoginScreen';
 // import InitUserScreen from '../Screens/InitUserScreen';
 // import InitPassScreen from '../Screens/InitPassScreen';
+
+function LogoTitle() {
+    return (
+        <View style={styles.container}>
+            <TextInput placeholder={"Hola"} style={styles.styleInput}/>
+            <Ionicons name="cart-outline" size={30} color="black" />
+        </View>
+    );
+}
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -26,20 +39,22 @@ const Drawer = createDrawerNavigator();
 export const MyDrawer = () =>{
     return (
         // <NavigationContainer>
-        <Stack.Navigator>
-            <Stack.Screen name="HomeScreen" component={HomeScreen}
-                options={{ headerShown: false, headerTitle: '', headerShadowVisible: false }}
+        <Drawer.Navigator>
+            <Drawer.Screen name="HomeScreen" component={HomeScreen}
+                options={{ headerShown: true, headerTitle: (props) => <LogoTitle {...props} /> , headerShadowVisible: false, headerStyle: {
+                    backgroundColor: '#f1c40f',
+                },}}    
             />
-            <Stack.Screen name="LogOut" component={LogOutScreen}
-                options={{ headerShown: false, headerTitle: '', headerShadowVisible: false }}
-            />
-            <Stack.Screen name="CartScreen" component={CartScreen}
+            <Drawer.Screen name="LogOut" component={LogOutScreen} />
+            <Drawer.Screen name="CartScreen" component={CartScreen}
                 options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
             />
-            <Stack.Screen name="OffersScreen" component={OffersScreen}
-                options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
+            <Drawer.Screen name="OfferScreen" component={OffersScreen}
+                options={{headerShown:true, headerTitle:'Ofertas', headerShadowVisible: true, headerStyle: {
+                    backgroundColor: '#f1c40f',
+                },}}
             />
-        </Stack.Navigator>
+        </Drawer.Navigator>
         // </NavigationContainer>
         
         
@@ -80,5 +95,20 @@ export const StackLogin = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'row',
+        padding: 10
+    },
+    styleInput:{
+        width: '50%',
+        height: 30,
+        borderWidth: 1,
+    },
+    cartIcon: {
+        // borderWidth: 1,
+        height: '60%',
+        width: '7%',
+        marginLeft: 5,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 })
