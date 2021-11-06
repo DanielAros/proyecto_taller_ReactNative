@@ -9,10 +9,12 @@ import ReduxThunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import LoginValidation from './Navigation/LogValidation';
 import authReducer from './store/reducers/authReducer';
+import cartReducer from './store/reducers/cartReducer';
 
 import AppNavigation from './Navigation/AppNavigation';
 
 const rootReducer = combineReducers({
+  cart: cartReducer,
   auth: authReducer,
 })
 const store = createStore(

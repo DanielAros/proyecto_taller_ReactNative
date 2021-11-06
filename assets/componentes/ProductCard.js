@@ -3,8 +3,11 @@ import {StyleSheet, View, Text, Image, Dimensions, TouchableOpacity} from "react
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const ProductCard = (props) =>{
-    // console.log(window.innerHeight)
-    var of = Math.floor(props.item.cost / 12)
+    console.log(props.productInfo)
+    const goToDetails = () =>{
+        props.navigation.navigate('ProductDetails',{productInfo:props.productInfo});
+    }
+
     return(
             // <TouchableOpacity  style={{width: '100%', height:'100%', borderWidth: 1}}>
             <View style={styles.container}>

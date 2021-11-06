@@ -47,7 +47,7 @@ export const MyDrawer = () =>{
             />
             <Stack.Screen name="LogOut" component={LogOutScreen} />
             <Stack.Screen name="CartScreen" component={CartScreen}
-                options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
+                options={{headerShown:true, headerTitle:'Carrito', headerShadowVisible: false}}
             />
             <Stack.Screen name="OffersScreen" component={OffersScreen}
                 options={{headerShown:true, headerTitle:'Ofertas', headerShadowVisible: false, headerStyle: {
