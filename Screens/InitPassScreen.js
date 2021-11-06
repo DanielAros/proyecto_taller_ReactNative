@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Dimensions, Button, Alert} from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import { Divider } from 'react-native-elements/dist/divider/Divider';
 import Button1 from '../assets/Buttons/Button1';
 import Button2 from '../assets/Buttons/Button2';
 import {useDispatch} from "react-redux";
@@ -65,7 +64,6 @@ export const InitPassScreen = (props) => {
             </View>
             <View style={styles.containerButtom}>
                 <Text style={styles.textHelpStyle}>No soy</Text>
-                {/* <Divider style={{marginHorizontal:1, marginBottom: 12}}/> */}
             </View>
         </View>
     )

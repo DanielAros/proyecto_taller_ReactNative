@@ -1,14 +1,17 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View, Dimensions } from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default Card = (props, onPress) => {
-    console.log(props)
+    const redirectOffers = () => {
+        props.navigation.navigate('OffersScreen')
+    }
+    // console.log(props)
     return (
         // 
         <View style={styles.cont}>
-            <TouchableOpacity style={styles.touch}>
+            <TouchableOpacity style={styles.touch} onPress={ props.cardData.id === 2 ? redirectOffers : null }>
                 <View style={styles.iconCont}>
                     {props.cardData.obj}
                 </View>
@@ -25,11 +28,13 @@ export default Card = (props, onPress) => {
 const styles = StyleSheet.create({
     cont: {
         // borderWidth: 1,
-        width: '20%',
+        width: Dimensions.get('window').width < 400 ? '18%' : '20%',
         height: hp('13%'),
         // backgroundColor: 'red',
         // padding: 10,
-        alignItems: 'center'
+        alignItems: 'center',
+        marginRight: Dimensions.get('window').width < 400 ? wp('1%') : null,
+        marginLeft: Dimensions.get('window').width < 400 ? wp('1%') : null
     },
 
     iconCont: {

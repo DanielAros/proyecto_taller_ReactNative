@@ -26,11 +26,17 @@ const Drawer = createDrawerNavigator();
 export const MyDrawer = () =>{
     return (
         // <NavigationContainer>
-            <Stack.Navigator>
+        <Stack.Navigator>
             <Stack.Screen name="HomeScreen" component={HomeScreen}
-                options={{ headerShown: false, headerTitle: '', headerShadowVisible: false }} />
-            <Stack.Screen name="LogOut" component={LogOutScreen} />
+                options={{ headerShown: false, headerTitle: '', headerShadowVisible: false }}
+            />
+            <Stack.Screen name="LogOut" component={LogOutScreen}
+                options={{ headerShown: false, headerTitle: '', headerShadowVisible: false }}
+            />
             <Stack.Screen name="CartScreen" component={CartScreen}
+                options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
+            />
+            <Stack.Screen name="OffersScreen" component={OffersScreen}
                 options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
             />
         </Stack.Navigator>
