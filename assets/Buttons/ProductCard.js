@@ -9,7 +9,7 @@ const ProductCard = (props) =>{
             // <TouchableOpacity  style={{width: '100%', height:'100%', borderWidth: 1}}>
             <View style={styles.container}>
                 <Image style={styles.image}
-                    source={{ uri: props.item.imgUrl }} />
+                    source={{ uri: props.item.imgUrls}} />
                 <View style={styles.infoContainer}>
                     <Text style={styles.title}> {props.item.name} </Text>
                 <Text style={styles.text}>$ {props.item.cost} mxn</Text>

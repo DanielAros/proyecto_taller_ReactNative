@@ -50,7 +50,12 @@ export const MyDrawer = () =>{
                 options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
             />
             <Stack.Screen name="OffersScreen" component={OffersScreen}
-                options={{headerShown:true, headerTitle:'', headerShadowVisible: true, headerStyle: {
+                options={{headerShown:true, headerTitle:'Ofertas', headerShadowVisible: false, headerStyle: {
+                    backgroundColor: '#f1c40f',
+                },}}
+            />
+            <Stack.Screen name="ProductDetails" component={DetailsScreen}
+                options={{headerTitle:'Producto',headerStyle: {
                     backgroundColor: '#f1c40f',
                 },}}
             />
