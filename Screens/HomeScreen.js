@@ -157,7 +157,7 @@ export const HomeScreen = (props) => {
             <View style={styles.recentViewedContainer}>
 
                 <View style={styles.textRecentCont}>
-                    <Text>Visto Recientemente</Text>
+                    <Text style={styles.textRecent}>Visto Recientemente</Text>
                 </View>
                 <Divider style={{marginHorizontal:1, marginBottom: 12}}/>
 
@@ -171,11 +171,12 @@ export const HomeScreen = (props) => {
                     />
                     
                 {/* </View> */}
+                
+                <Divider style={{marginHorizontal:1, marginBottom: 12}}/>
+                <View style={styles.navHistoryCont}>
+                    <Text style={styles.navHistory}>Ver historial de Navegacion   {'>'} </Text>
+                    <View style={styles.arrowIconCont}>
 
-                <View>
-                    <Text>Historial de Navegacion</Text>
-                    <View>
-                        {/* Icono de la flecha */}
                     </View>
                 </View>
             </View>
@@ -304,14 +305,35 @@ const styles = StyleSheet.create({
     textRecentCont: {
         // borderWidth: 1,
         width: '100%',
-        height: '15%'
+        height: '15%',
+        justifyContent: 'center',
+        padding: 10
     },
+
+    textRecent: {
+        fontFamily: 'Proxima-nova',
+        fontSize: hp('2.5%')
+    },
+
     carrouselContainer2: {
         width: '100%',
         height: '60%',
         borderWidth: 1,
         // alignItems: 'center',
         // justifyContent: 'center'
+    },
+
+    navHistoryCont: {
+        // borderWidth: 1,
+        height: '10%',
+        justifyContent: 'center',
+        padding: 10
+    },
+
+    navHistory: {
+        fontFamily: 'Proxima-nova',
+        fontSize: hp('1.7%'),
+        color: '#2980b9'
     }
 })
 

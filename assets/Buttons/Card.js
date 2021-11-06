@@ -17,7 +17,7 @@ export default Card = (props, onPress) => {
                 </View>
             </TouchableOpacity>
             <View style={styles.textCont}>
-                <Text style={styles.text}>{props.cardData.text}</Text>
+                <Text style={props.cardData.id === 2 ? styles.offerText : styles.text }>{props.cardData.text}</Text>
             </View>
             </View>
         // 
@@ -64,10 +64,17 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '40%',
         margin: 5,
-        alignItems:'center'
+        alignItems: 'center',
+        
     },
     text: {
         color: '#636e72',
+        fontFamily: 'Proxima-nova',
+        fontSize: hp('1.5%'),
+        textAlign:'center'
+    },
+    offerText: {
+        color: '#3498db',
         fontFamily: 'Proxima-nova',
         fontSize: hp('1.5%'),
         textAlign:'center'

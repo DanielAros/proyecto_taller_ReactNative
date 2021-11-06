@@ -39,22 +39,22 @@ const Drawer = createDrawerNavigator();
 export const MyDrawer = () =>{
     return (
         // <NavigationContainer>
-        <Drawer.Navigator>
-            <Drawer.Screen name="HomeScreen" component={HomeScreen}
-                options={{ headerShown: true, headerTitle: (props) => <LogoTitle {...props} /> , headerShadowVisible: false, headerStyle: {
+        <Stack.Navigator>
+            <Stack.Screen name="HomeScreen" component={HomeScreen}
+                options={{ headerShown: false, headerTitle: '' , headerShadowVisible: false, headerStyle: {
                     backgroundColor: '#f1c40f',
                 },}}    
             />
-            <Drawer.Screen name="LogOut" component={LogOutScreen} />
-            <Drawer.Screen name="CartScreen" component={CartScreen}
+            <Stack.Screen name="LogOut" component={LogOutScreen} />
+            <Stack.Screen name="CartScreen" component={CartScreen}
                 options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
             />
-            <Drawer.Screen name="OfferScreen" component={OffersScreen}
-                options={{headerShown:true, headerTitle:'Ofertas', headerShadowVisible: true, headerStyle: {
+            <Stack.Screen name="OffersScreen" component={OffersScreen}
+                options={{headerShown:true, headerTitle:'', headerShadowVisible: true, headerStyle: {
                     backgroundColor: '#f1c40f',
                 },}}
             />
-        </Drawer.Navigator>
+        </Stack.Navigator>
         // </NavigationContainer>
         
         

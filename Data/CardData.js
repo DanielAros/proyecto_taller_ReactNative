@@ -11,12 +11,12 @@ import {
 export const CARDATA = [
     {
         id: 1,
-        obj: <MaterialCommunityIcons name="cellphone-text" size={Dimensions.get('window').width < 400 ? 25 : 30} color="#636e72" />,
-        text: 'Recarga celular',
+        obj: <MaterialCommunityIcons name="cellphone-text" size={Dimensions.get('window').width < 400 ? 25 : 35} color="#636e72" />,
+        text: 'Recargar celular',
     },
     {
         id: 2,
-        obj: <MaterialIcons name="local-offer" size={Dimensions.get('window').width < 400 ? 25 : 30} color="#636e72" />,
+        obj: <MaterialIcons name="local-offer" size={Dimensions.get('window').width < 400 ? 28 : 35} color="#3498db" />,
         text: 'Ofertas',
     },
     {
