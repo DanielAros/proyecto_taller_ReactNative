@@ -4,7 +4,7 @@ import {StyleSheet, View, Text, Image, Dimensions, TouchableOpacity} from "react
 const ProductCard = (props) =>{
     console.log(props.productInfo)
     const goToDetails = () =>{
-        props.navigation.navigate('ProductDetails');
+        props.navigation.navigate('ProductDetails',{productInfo:props.productInfo});
     }
 
     return(
