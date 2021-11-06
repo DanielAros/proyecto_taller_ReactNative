@@ -50,7 +50,9 @@ export const MyDrawer = () =>{
                 options={{headerShown:false, headerTitle:'', headerShadowVisible: false}}
             />
             <Drawer.Screen name="OfferScreen" component={OffersScreen}
-                options={{headerShown:true, headerTitle:'Ofertas', headerShadowVisible: true}}
+                options={{headerShown:true, headerTitle:'Ofertas', headerShadowVisible: true, headerStyle: {
+                    backgroundColor: '#f1c40f',
+                },}}
             />
         </Drawer.Navigator>
         // </NavigationContainer>
