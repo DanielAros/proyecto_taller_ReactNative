@@ -182,6 +182,10 @@ export const HomeScreen = (props) => {
                     renderItem={_renderItem}
                     itemWidth={wp('90%')}
                     sliderWidth={wp('90%')}
+                    loop={true}
+                    autoplay={true}
+                    autoplayInterval={4000}
+                    autoplayDelay={4000}
                 />
             </View>
 
@@ -221,6 +225,10 @@ export const HomeScreen = (props) => {
                         renderItem={_renderItem2}
                         itemWidth={wp('100%')}
                         sliderWidth={wp('100%')}
+                        loop={true}
+                        autoplay={true}
+                        autoplayInterval={3500}
+                        autoplayDelay={3500}
                     />
                     
                 </View>

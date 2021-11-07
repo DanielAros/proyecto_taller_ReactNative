@@ -93,7 +93,7 @@ export const DetailsScreen = (props) => {
                     renderItem={_renderItem}
                     itemWidth={wp('90%')}
                     sliderWidth={wp('90%')}
-                    onSnapToItem={(index)=>{setActive({activeSlide: index})}}
+                        onSnapToItem={(index) => { setActive({ activeSlide: index }) }}
                 />
                 {/* {console.log(productInfo.imgArray.index)} */}
                 
