@@ -12,9 +12,6 @@ export const StateBar = ({icon, title}) => {
                     { icon }
                 </TouchableOpacity>
             </View>
-            
-            
-
             <View style={styles.titleCont}>
                 <Text style={styles.title}>{ title }</Text>
             </View>

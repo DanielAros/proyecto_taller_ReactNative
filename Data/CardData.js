@@ -16,7 +16,7 @@ export const CARDATA = [
     },
     {
         id: 2,
-        obj: <MaterialIcons name="local-offer" size={Dimensions.get('window').width < 400 ? 28 : 35} color="#3498db" />,
+        obj: <MaterialIcons name="local-offer" size={Dimensions.get('window').width < 400 ? 28 : 35} color="#3483fa" />,
         text: 'Ofertas',
     },
     {

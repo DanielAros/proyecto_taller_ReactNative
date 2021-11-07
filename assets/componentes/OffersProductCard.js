@@ -1,14 +1,16 @@
 import React from "react";
-import {StyleSheet, View, Text, Image, Dimensions, TouchableOpacity} from "react-native";
+import { StyleSheet, View, Text, Image, Dimensions, TouchableOpacity } from "react-native";
 
-const OffersProductCard = (props) =>{
-    console.log(props.productInfo)
+
+const OffersProductCard = (props) => {
+    // console.log(props)
     const goToDetails = () =>{
-        props.navigation.navigate('ProductDetails');
+        props.navigation.navigate('ProductDetails', { productInfo:props.productInfo });
     }
 
     return(
         <View style={styles.conteiner}>
+            
             <TouchableOpacity onPress={goToDetails}>
                 <View style={styles.containerImg}>
                     <Image style={styles.styleImg}
@@ -31,7 +33,7 @@ const OffersProductCard = (props) =>{
                         </Text>
                     </View>
                     <View>
-                        <Text style={styles.textDescription}>{props.productInfo.description}</Text>
+                        <Text style={styles.textDescription}>{props.productInfo.name}</Text>
                         <Text style={styles.textMercadoLibre}>por Mercado Libre Electronico</Text>
                     </View>
                 </View>

@@ -2,22 +2,34 @@ import React from 'react';
 import {StyleSheet, View, Text, Image, Dimensions, TouchableOpacity} from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-const ProductCard = (props) =>{
-    console.log(props.productInfo)
-    const goToDetails = () =>{
-        props.navigation.navigate('ProductDetails',{productInfo:props.productInfo});
+const ProductCard = (props) => {
+    
+    // console.log(props)
+
+    var of = Math.floor(props.productInfo.cost / 12)
+
+    // const goToDetails = () =>{
+    //     props.navigation.navigate('ProductDetails',{productInfo:props.productInfo});
+    // }
+
+    const goToDetails = () => {
+        // console.log(props.item)
+        // console.log(ARTICULOS[0])
+        props.navigation.navigate('ProductDetails', { productInfo:props.productInfo });
     }
 
     return(
             // <TouchableOpacity  style={{width: '100%', height:'100%', borderWidth: 1}}>
-            <View style={styles.container}>
-                <Image style={styles.image}
-                    source={{ uri: props.item.imgUrls}} />
+        <View style={styles.container}>
+            <TouchableOpacity style={styles.container} onPress={goToDetails}>
+            <Image style={styles.image}
+                    source={{ uri: props.productInfo.imgUrls}} />
                 <View style={styles.infoContainer}>
-                    <Text style={styles.title}> {props.item.name} </Text>
-                <Text style={styles.text}>$ {props.item.cost} mxn</Text>
+                    <Text style={styles.title}> {props.productInfo.name} </Text>
+                <Text style={styles.text}>$ {props.productInfo.cost} mxn</Text>
                 <Text style={styles.pagos}> 12 x {of} msi</Text>
                 </View>
+            </TouchableOpacity>
             </View>
             // </TouchableOpacity>
     )

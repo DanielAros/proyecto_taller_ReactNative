@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { BackgroundImage } from 'react-native-elements/dist/config';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import { SimpleLineIcons, Ionicons, Feather, Octicons } from '@expo/vector-icons'; 
+import { SimpleLineIcons, Ionicons, Feather, Octicons, AntDesign } from '@expo/vector-icons'; 
 import Carousel from 'react-native-snap-carousel';
 import { IMAGES } from '../Data/imgCarrousel';
 import { CARDATA } from '../Data/CardData';
@@ -19,9 +19,12 @@ import Card from '../assets/componentes/Card';
 import { Divider } from 'react-native-elements/dist/divider/Divider';
 import { ARTICULOS } from '../Data/dummyData';
 import ProductCard from '../assets/componentes/ProductCard';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 export const HomeScreen = (props) => {
+    
+    // console.log(props)
 
     const redirectCart = () => {
         props.navigation.navigate('CartScreen')
@@ -34,6 +37,8 @@ export const HomeScreen = (props) => {
                 borderRadius: 10,
                 height: hp('20%'),
                 width: wp('90%'),
+                alignItems: 'center',
+                justifyContent:'center',
                 // borderWidth:1
             }}
             >
@@ -50,51 +55,94 @@ export const HomeScreen = (props) => {
         )
     }
 
-    const goToDetails = () =>{
-        props.navigation.navigate('ProductDetails');
-    }
+    const _renderItem2 = ({ item }) => {
 
-    const _renderItem2 = (props) => {
-        // console.log(window.innerHeight)
+        const goToDetails = () => {
+            // console.log(item)
+            props.navigation.navigate('ProductDetails', { productInfo:item });
+        }
+
+        var of = Math.floor(parseFloat(item.precioSinDescuento / 12));
+
         return (
-            <TouchableOpacity style={{flex: 1}} onPress={goToDetails}>
-                <View style={{
-                flex: 1,
-                padding: 10,
-                height: '100%',
-                width: '100%',
-            }}>
+            <View
+                style={{
+                    // flex: 1,
+                    padding: 10,
+                    height: '80%',
+                    width: wp('85%'),
+                    // borderWidth: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
 
-                <View style={{
-                    height: '100%',
-                    width: '100%',
-                }}>
-                <FlatList
-                    data={[props.item]}
-                    showsVerticalScrollIndicator={true} //Explicar esto
-                    keyExtractor={item => item.id.toString()}
-                    renderItem={itemData =>(
-                        <ProductCard
-                            productInfo={props.item}
-                            // onPress={redirect}
-                            // imgUrl={itemData.item.url}
-                            // name={itemData.item.name}
-                            // cost={itemData.item.cost}
-                            {...props}
+
+                <View>
+                    <TouchableOpacity
+                        style={{
+                            width: wp('82%'),
+                            height: hp('20%'),
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}
+                        onPress={goToDetails}
+                    >
+                        <Image
+                            style={{
+                                width:'40%',
+                                height: '100%',
+                                resizeMode: 'contain',
+                                borderRadius: 10
+                            }}
+                            source={{ uri: item.imgUrls }}
                         />
-                    )}
-                />
-
-            </View>
-        </View>
-            </TouchableOpacity>
-            
+                        <View
+                            style={{
+                                width: '60%',
+                                height: '100%',
+                                padding: 5,
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    fontFamily: 'Proxima-nova',
+                                    fontSize: hp('2%'),
+                                    marginBottom: hp('1%')
+                                }}
+                            >
+                                {item.name}
+                            </Text>
+                            <Text
+                                style={{
+                                    fontFamily: 'Proxima-nova',
+                                    fontSize: hp('3%'),
+                                    marginBottom: hp('1%')
+                                }}
+                            >
+                                $ {item.precioSinDescuento} 
+                            </Text>
+                            <Text
+                                style={{
+                                    fontFamily: 'Proxima-nova',
+                                    fontSize: hp('1.5%'),
+                                    color: 'green',
+                                    marginBottom: hp('1%')
+                                }}
+                            >
+                                12 x {item.mesesInteres} msi
+                            </Text>
+                    </View>
+                    </TouchableOpacity>
+                </View>
+            </View>            
         )
     }
 
     return (
         <View style={styles.container}>
-
             <View style={styles.buscContainer}>
 
                 <View style={styles.menuIcon}>
@@ -164,9 +212,9 @@ export const HomeScreen = (props) => {
                 <View style={styles.textRecentCont}>
                     <Text style={styles.textRecent}>Visto Recientemente</Text>
                 </View>
-                <Divider style={{marginHorizontal:1, marginBottom: 12}}/>
+                <Divider style={{marginHorizontal:1, marginBottom: hp('1%')}}/>
 
-                {/* <View style={styles.carrouselContainer2}> */}
+                <View style={styles.carrouselContainer2}>
                     <Carousel
                         layout={'default'}
                         data={ARTICULOS}
@@ -175,15 +223,14 @@ export const HomeScreen = (props) => {
                         sliderWidth={wp('100%')}
                     />
                     
-                {/* </View> */}
-                
-                <Divider style={{marginHorizontal:1, marginBottom: 12}}/>
-                <View style={styles.navHistoryCont}>
-                    <Text style={styles.navHistory}>Ver historial de Navegacion   {'>'} </Text>
-                    <View style={styles.arrowIconCont}>
-
-                    </View>
                 </View>
+                
+                <Divider style={{ marginHorizontal: 1, marginBottom: hp('1%') }} />
+                <TouchableOpacity style={styles.navHistoryCont}>
+                    <Text style={styles.navHistory}>Ver historial de Navegacion</Text>
+                    <AntDesign name="right" size={Dimensions.get('window').width < 400 ? 9 : 15} color="#3483fa" />
+                </TouchableOpacity>
+                
             </View>
         </View>
     )
@@ -196,6 +243,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#dfe6e9',
         alignItems:'center'
     },
+    
     buscContainer: {
         height: hp('7%'),
         width: wp('100%'),
@@ -270,6 +318,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: hp('2%'),
+        // borderWidth: 1
+    },
+    carrouselContainer2: {
+        width: wp('100%'),
+        height: hp('18%'),
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: hp('2%'),
+        // borderWidth: 1
     },
     offerSectionContainer: {
         marginTop: hp('1.5%'),
@@ -294,7 +351,7 @@ const styles = StyleSheet.create({
         // borderWidth: 1,
         borderRadius: 10,
         marginTop: hp('2%'),
-        height: hp('35%'),
+        height: hp('33%'),
         width: wp('90%'),
         backgroundColor: '#fff',
         shadowColor: "#000",
@@ -305,40 +362,34 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.30,
         shadowRadius: 4.65,
         elevation: 8,
-        padding: wp('2%')
+        padding: wp('2%'),
     },
     textRecentCont: {
         // borderWidth: 1,
         width: '100%',
         height: '15%',
         justifyContent: 'center',
-        padding: 10
+        // padding: 10,
+        // borderWidth: 1
     },
-
     textRecent: {
         fontFamily: 'Proxima-nova',
         fontSize: hp('2.5%')
     },
-
-    carrouselContainer2: {
-        width: '100%',
-        height: '60%',
-        borderWidth: 1,
-        // alignItems: 'center',
-        // justifyContent: 'center'
-    },
-
     navHistoryCont: {
         // borderWidth: 1,
         height: '10%',
-        justifyContent: 'center',
-        padding: 10
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center',
+        // padding: 10,
+        // borderWidth: 1,
+        // backgroundColor: 'red'
     },
-
     navHistory: {
         fontFamily: 'Proxima-nova',
-        fontSize: hp('1.7%'),
-        color: '#2980b9'
+        fontSize: hp('2%'),
+        color: '#3483fa'
     }
 })
 

@@ -2,14 +2,27 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
 import OffersProductCard from '../assets/componentes/OffersProductCard';
 import {ARTICULOS} from '../Data/dummyData';
-import { AntDesign, FontAwesome} from '@expo/vector-icons'; 
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
+import {StateBar} from '../assets/componentes/StateBar'
+import { Feather } from '@expo/vector-icons';
+
 
 export const OffersScreen = (props) => {
-    return(
+    console.log(props)
+    return (
+
         <View style={styles.container}>
+            <StateBar
+                icon={
+                    <Feather
+                        name="menu"
+                        size={Dimensions.get('window').width < 400 ? 20 : 30}
+                        color="black"
+                    />
+                }
+                title="Producto"
+            />
 
-
-            
             <View style={styles.containerDir}>
                 <FontAwesome name="map-marker" size={12} color="black" style={{marginRight:5}}/>
                 <Text style={styles.styleText}>Enviar a Hugo Aviles</Text>

@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         textAlign:'center'
     },
     offerText: {
-        color: '#3498db',
+        color: '#3483fa',
         fontFamily: 'Proxima-nova',
         fontSize: hp('1.5%'),
         textAlign:'center'
