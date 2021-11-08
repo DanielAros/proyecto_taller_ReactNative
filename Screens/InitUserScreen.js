@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Dimensions, Button} from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { Divider } from 'react-native-elements/dist/divider/Divider';
@@ -7,20 +7,46 @@ import Button2 from '../assets/Buttons/Button2';
 
 
 export const InitUserScreen = (props) => {
+
+    const [user, setUser] = useState(null);
+    const [disable, setDisable] = useState(true);
+
     const onPress = () =>{
-        props.navigation.navigate('PassScreen');
+        props.navigation.navigate('PassScreen', {usuario:user});
     }
+
+    const validateUser = (txt) =>{
+        const emailTest = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
+        if(txt.match(emailTest)){
+            setUser(txt)
+            console.log(txt)
+            setDisable(false)
+        }else{
+            setUser(null)
+            console.log('null')
+            setDisable(true)
+        }
+    }
+
     return(
         <View style={styles.container}> 
             <View style={styles.containerTop}>
                 <Text style={styles.title}>Ingresa tu teléfono, e-mail o usuario</Text>
                 <Text style={styles.labelEmail}>Teléfono, e-mail o usuario</Text>
                 <View style={styles.textInputCont}>
-                    <TextInput style={styles.textInputStyle} />
+                    <TextInput style={styles.textInputStyle} 
+                        onChangeText={txt => validateUser(txt)}
+                    />
                 </View>
                 <View style={styles.buttonCont}>
                     <View style={styles.but1Cont}>
-                        <Button1 text='Ingresar' onPress={onPress}/>
+                        {
+                            disable ? 
+                                <Button1 text='Ingresar'/> 
+                            : 
+                                <Button1 text='Ingresar' onPress={onPress}/>
+                        }
+                        
                     </View>
                     <View style={styles.but2Cont}>
                         <Button2 text='Crear cuenta' />
@@ -126,4 +152,7 @@ const styles = StyleSheet.create({
         width: '100%',
         // borderWidth: 1
     },
+    butColor:{
+        backgroundColor: 'yellow',
+    }
 })

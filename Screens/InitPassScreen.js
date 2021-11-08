@@ -10,16 +10,19 @@ export const InitPassScreen = (props) => {
     /*const onPress = () =>{
         props.navigation.navigate('HomeScreen');
     }*/
-
-    const [user, setUser] = useState("Admin");
+    const {usuario} = props.route.params;
+    
+    //console.log(usuario);
+    
     const [password, setPassword] = useState(null);
+    const [disable, setDisable] = useState(true);
 
     const dispatch = useDispatch();
     const onClick = () =>{
         try {
-            console.log(user, password)
-            user && password ?
-                dispatch(authAction.tryLogin(user, password))
+            console.log(usuario, password)
+            usuario && password ?
+                dispatch(authAction.tryLogin(usuario, password))
             :
                 Alert.alert("Error", "Campos vacios", [{text:'ok'}])
         }catch(e){
@@ -27,13 +30,17 @@ export const InitPassScreen = (props) => {
         }
     }
 
-    const validateUser = (user) =>{
-        console.log(user)
-        setUser(user)
-    }
     const validatePassword = (password) =>{
-        console.log(password)
-        setPassword(password)
+        //console.log(password.length)
+        if(password.length >= 6){
+            setPassword(password)
+            console.log(password)
+            setDisable(false)
+        }else{
+            setPassword(null)
+            console.log('null')
+            setDisable(true)
+        }
     }
 
 
@@ -54,7 +61,12 @@ export const InitPassScreen = (props) => {
                 
                 <View style={styles.buttonCont}>
                     <View style={styles.but1Cont}>
-                        <Button1 text='Ingresar' onPress={onClick}/>
+                        {
+                            disable ?
+                                <Button1 text='Ingresar'/>
+                            :
+                                <Button1 text='Ingresar' onPress={onClick}/>
+                        }
                     </View>
                     <View style={styles.but2Cont}>
                         <Button2 text='No sé mi clave' />

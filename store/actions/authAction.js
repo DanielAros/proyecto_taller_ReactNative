@@ -3,7 +3,7 @@ export const LOGOUT = 'LOGOUT';
 
 
 export const tryLogin = (user, password) =>{
-    if(user === "Admin" && password === "Admin1234"){
+    if(user === "admin@gmail.com" && password === "Admin1234"){
         return {
             type: LOGIN, //action.type  //payload
             user:user //action.user
