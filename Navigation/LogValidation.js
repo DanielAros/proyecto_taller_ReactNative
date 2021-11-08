@@ -29,7 +29,7 @@ const LoginValidation = (props) => {
         <NavigationContainer>
             <MyStatusBar backgroundColor="#f1c40f" />
             {isAuth && <MyDrawer />}
-            {!isAuth && <MyDrawer />}
+            {!isAuth && <StackLogin />}
         </NavigationContainer>
     );
 };

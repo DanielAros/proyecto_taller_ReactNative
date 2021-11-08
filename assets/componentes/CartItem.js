@@ -15,6 +15,7 @@ import {
 } from "react-native-responsive-screen";
 import { Feather, FontAwesome } from "@expo/vector-icons";
 import Button2 from "../Buttons/Button2";
+import { ScrollView } from "react-native-gesture-handler";
 
 const CartItem = (props) => {
     const dispatch = useDispatch();
@@ -28,6 +29,8 @@ const CartItem = (props) => {
     console.log(props);
     return (
         <View>
+        {/* <ScrollView> */}
+
             <View style={styles.card}>
                 <View
                     style={{
@@ -201,6 +204,7 @@ const CartItem = (props) => {
                     <Button2 text="Mas productos del vendedor" onPress={null} />
                 </View>
             </View>
+            {/* </ScrollView> */}
         </View>
     );
 };

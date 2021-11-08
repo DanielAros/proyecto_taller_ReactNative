@@ -8,7 +8,7 @@ import { Feather } from '@expo/vector-icons';
 
 
 export const OffersScreen = (props) => {
-    console.log(props)
+    // console.log(props)
     return (
 
         <View style={styles.container}>
@@ -21,6 +21,7 @@ export const OffersScreen = (props) => {
                     />
                 }
                 title="Producto"
+                nav = {props.navigation}
             />
 
             <View style={styles.containerDir}>

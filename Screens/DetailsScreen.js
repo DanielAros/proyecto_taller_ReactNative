@@ -90,6 +90,7 @@ export const DetailsScreen = (props) => {
                         />
                     }
                     title="Producto"
+                    nav={props.navigation}
                 />
                 <View style={styles.locatContainer}>
                     <View style={styles.location}>

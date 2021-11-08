@@ -48,6 +48,7 @@ function LogoTitle() {
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
+
 export const MyDrawer = () => {
     return (
         // <NavigationContainer>
@@ -64,7 +65,10 @@ export const MyDrawer = () => {
                     },
                 }}
             />
-            <Stack.Screen name="LogOut" component={LogOutScreen} />
+            <Stack.Screen
+                name="LogOutScreen"
+                component={LogOutScreen}
+            />
             <Stack.Screen
                 name="CartScreen"
                 component={CartScreen}
@@ -97,6 +101,7 @@ export const MyDrawer = () => {
                     },
                 }}
             />
+            
         </Stack.Navigator>
         // </NavigationContainer>
     );
@@ -126,24 +131,6 @@ export const StackLogin = () => {
                 component={InitPassScreen}
                 options={{
                     headerShown: true,
-                    headerTitle: "",
-                    headerShadowVisible: false,
-                }}
-            />
-            <Stack.Screen
-                name="HomeScreen"
-                component={HomeScreen}
-                options={{
-                    headerShown: false,
-                    headerTitle: "",
-                    headerShadowVisible: false,
-                }}
-            />
-            <Stack.Screen
-                name="CartScreen"
-                component={CartScreen}
-                options={{
-                    headerShown: false,
                     headerTitle: "",
                     headerShadowVisible: false,
                 }}

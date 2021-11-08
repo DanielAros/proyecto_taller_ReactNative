@@ -15,11 +15,12 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import Button1 from "../assets/Buttons/Button1";
 
-export const CartScreen = () => {
+export const CartScreen = (props) => {
     const cartItems = useSelector((state) => state.cart.items);
     const cartTotal = useSelector((state) => state.cart.total);
-
+    console.log(props);
     return (
         <View style={styles.container}>
             {/* <ScrollView contentContainerStyle={styles.container}> */}
@@ -32,6 +33,8 @@ export const CartScreen = () => {
                         color="black"
                     />
                 }
+                title=""
+                nav={props.navigation}
             />
             <View style={styles.containerHeader}>
                 <View
@@ -163,19 +166,67 @@ export const CartScreen = () => {
                     </Text>
                 </View>
             </View>
-            <View>
-                <FlatList
-                    style={styles.styleFlatList}
-                    data={cartItems}
-                    showsVerticalScrollIndicator={true}
-                    keyExtractor={() =>
-                        Math.floor(Math.random() * 1001).toString()
-                    }
-                    renderItem={(itemData) => <CartItem item={itemData.item} />}
-                />
+            <ScrollView>
+                <View>
+                    <FlatList
+                        style={styles.styleFlatList}
+                        data={cartItems}
+                        showsVerticalScrollIndicator={true}
+                        keyExtractor={() =>
+                            Math.floor(Math.random() * 1001).toString()
+                        }
+                        renderItem={(itemData) => (
+                            <CartItem item={itemData.item} />
+                        )}
+                    />
+                </View>
+            </ScrollView>
+            <View
+                style={{
+                    borderTopWidth: 1,
+                    height: hp("7%"),
+                    width: wp("100%"),
+                    padding: wp("3%"),
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                }}
+            >
+                <Text
+                    style={{
+                        fontFamily: "Proxima-nova",
+                        fontSize: hp("3%"),
+                    }}
+                >
+                    Total con envio:
+                </Text>
+                <Text
+                    style={{
+                        fontFamily: "Proxima-nova",
+                        fontSize: hp("3%"),
+                    }}
+                >
+                    $ {cartTotal}
+                </Text>
+            </View>
+            <View
+                style={{
+                    width: wp('100%'),
+                    height: hp('5%'),
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginBottom: hp('3%')
+                }}
+            >
+                <View
+                    style={{
+                        height: '100%',
+                        width: '80%',
+                    }}
+                >
+                    <Button1 text="Continuar Compra" />
+                </View>
             </View>
 
-            <Text>Total: ${cartTotal}</Text>
             {/* </ScrollView> */}
         </View>
     );
@@ -185,7 +236,7 @@ export const CartScreen = () => {
 // console.log(cartItems.length);
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         // justifyContent: "center",
         // alignItems: "center",
     },
