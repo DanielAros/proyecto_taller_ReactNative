@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         height: hp('7%'),
         alignItems: 'center',
         flexDirection: 'row',
-        padding: 10
+        padding: 10,
     },
 
     arrowIconCont: {

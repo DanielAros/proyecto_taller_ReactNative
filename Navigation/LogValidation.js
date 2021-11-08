@@ -1,38 +1,38 @@
-import React from 'react';
-import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native';
-import {NavigationContainer} from "@react-navigation/native";
-import {useSelector} from "react-redux";
-import {StackLogin, MyDrawer } from './AppNavigation';
+import React from "react";
+import { StyleSheet, Text, View, StatusBar, SafeAreaView } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+import { StackLogin, MyDrawer } from "./AppNavigation";
 
-const LoginValidation = (props) =>{
+const LoginValidation = (props) => {
+    const isAuth = useSelector((state) => state.auth.login);
 
-    const isAuth = useSelector(state => state.auth.login);
-
-/*    if(!isAuth){
+    /*    if(!isAuth){
         fetchCookie(){
 
         }
     }*/
 
-    const MyStatusBar = ({backgroundColor, ...props}) => (
+    const MyStatusBar = ({ backgroundColor, ...props }) => (
         <View style={[styles.statusBar, { backgroundColor }]}>
-        <SafeAreaView>
-            <StatusBar translucent backgroundColor={backgroundColor} {...props} />
-        </SafeAreaView>
+            <SafeAreaView>
+                <StatusBar
+                    translucent
+                    backgroundColor={backgroundColor}
+                    {...props}
+                />
+            </SafeAreaView>
         </View>
     );
 
-    return(
+    return (
         <NavigationContainer>
-            <MyStatusBar
-                backgroundColor="#f1c40f"
-            />
-            {isAuth && <MyDrawer/>}
-            {!isAuth && <MyDrawer/>}
-
+            <MyStatusBar backgroundColor="#f1c40f" />
+            {isAuth && <MyDrawer />}
+            {!isAuth && <MyDrawer />}
         </NavigationContainer>
     );
-}
+};
 
 export default LoginValidation;
 
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
     statusBar: {
         height: STATUSBAR_HEIGHT,
     },
-})
+});

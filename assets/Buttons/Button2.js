@@ -2,9 +2,9 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-const Button2 = ({ text }) => {
+const Button2 = ({ text, onPress }) => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
             <View style={styles.button}>
                 <Text style={styles.buttonText}>{ text }</Text>
             </View>
