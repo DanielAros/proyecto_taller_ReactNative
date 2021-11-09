@@ -9,7 +9,6 @@ import {
     FlatList,
     Dimensions,
 } from "react-native";
-import { BackgroundImage } from "react-native-elements/dist/config";
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,

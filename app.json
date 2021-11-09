@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "proyecto_taller_ReactNative",
+    "name": "MercadoLibreApp",
     "slug": "proyecto_taller_ReactNative",
+    "privacy": "public",
+    "description": "Proyecto Taller_React_Native: Mercado Libre App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
